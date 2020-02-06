@@ -1,4 +1,4 @@
-var win = 0;
+var wins = 0;
 var losses = 0;
 var currentScore = 0;
 var goal = 0;
@@ -38,7 +38,16 @@ for (let i=1; i <= 4; i++){
     // currentScore += this.data-value;
     currentScore += parseInt($(this).attr('data-value'));
     $("#user").html(currentScore); 
+    if (currentScore == goal) {
+        win();
+        newGame()
+    }
 
+    else if (currentScore > goal) {
+      lose();
+      newGame();
+    }
+    
     //create an if else statement for win/lose situations
     //create a function to reset the game after win/lose
 
@@ -46,14 +55,15 @@ for (let i=1; i <= 4; i++){
 });
 
 
-function win()
+function win(){
+wins++;
+$("#wins").html(wins);
+};
 
-if (currentScore == goal){
-win++
-$("#wins").html("Wins:" + wins);
-intialize();
-
-}
+function lose(){
+losses++;
+$("#losses").html(losses);
+};
 
 console.log(win);
 
