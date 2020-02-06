@@ -40,6 +40,7 @@ for (let i=1; i <= 4; i++){
     $("#user").html(currentScore); 
     if (currentScore == goal) {
         win();
+        
         newGame()
     }
 
@@ -57,11 +58,13 @@ for (let i=1; i <= 4; i++){
 
 function win(){
 wins++;
+alert("Congratulations! You Win!");
 $("#wins").html(wins);
 };
 
 function lose(){
 losses++;
+alert("Maybe next time.");
 $("#losses").html(losses);
 };
 
